@@ -1,0 +1,136 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins:wght@200;300;400;500&display=swap");
+.body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
+  width: 100%;
+}
+$font-black: #212121;
+$font-white: #fff;
+$padding: 100px;
+$padding-mobile: 32px;
+$font-breakpoint: 1024px;
+$tablet: 994px;
+$mobile: 600px;
+
+// colors
+$green: #99ca3c;
+$darkGreen: #99cc33;
+$hoverGreen: #6b8e23;
+$gray: #d9d9d9;
+$darkgray: #ccc;
+// mixins
+@mixin mobile {
+  @media screen and (max-width: #{$mobile}) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media screen and (max-width: #{$tablet}) {
+    @content;
+  }
+}
+@mixin font-breakpoint {
+  @media screen and (max-width: #{$font-breakpoint}) {
+    @content;
+  }
+}
+
+@mixin scrollbars(
+  $size: 2px,
+  $margin: 0,
+  $foreground-color: $font-brown,
+  // $background-color: mix($foreground-color, white, 50%)
+) {
+  &::-webkit-scrollbar {
+    width: $size;
+    height: $size;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $foreground-color;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: rgba($color: #b0b0b0, $alpha: 0.3);
+    // background: $background-color;
+    // height: 100px;
+    margin: $margin;
+  }
+}
+
+@mixin hideScrollbar {
+  &::-webkit-scrollbar {
+    width: 0 !important;
+  }
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+// typography
+.font-14 {
+  font-size: 14px;
+
+  @include mobile() {
+    font-size: 10px;
+  }
+}
+.font-16 {
+  font-size: 16px;
+
+  @include font-breakpoint() {
+    font-size: 14px;
+  }
+  @include mobile() {
+    font-size: 12px;
+  }
+}
+.font-18 {
+  font-size: 18px;
+
+  @include font-breakpoint() {
+    font-size: 16px;
+  }
+  @include mobile() {
+    font-size: 13px;
+  }
+}
+.font-20 {
+  font-size: 20px;
+  @include font-breakpoint() {
+    font-size: 17px;
+  }
+  @include mobile() {
+    font-size: 14px;
+  }
+}
+.font-24 {
+  font-size: 24px;
+
+  @include font-breakpoint() {
+    font-size: 20px;
+  }
+  @include mobile() {
+    font-size: 16px;
+  }
+}
+.font-32 {
+  font-size: 32px;
+  @include font-breakpoint() {
+    font-size: 28px;
+  }
+  @include mobile {
+    font-size: 22px;
+  }
+}
+.font-36 {
+  font-size: 36px;
+  @include font-breakpoint() {
+    font-size: 28px;
+  }
+  @include mobile {
+    font-size: 22px;
+  }
+}
